@@ -2,8 +2,9 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import signup from "./action";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { Eye, EyeOff, Loader } from "lucide-react";
+import useShowPassword from "@/hooks/useShowPassword";
 
 const RegisterForm = () => {
   let state = {
@@ -15,10 +16,7 @@ const RegisterForm = () => {
     message: "",
   };
   const [responseState, signupFn, isPending] = useActionState(signup, state);
-  const [showPassword, setShowPassword] = useState(false);
-  const handleShowPw = () => {
-    setShowPassword(!showPassword);
-  };
+  const { showPassword, handleShowPw } = useShowPassword();
   return (
     <form className="bg-surface p-8 rounded-xl outline outline-border">
       <label
@@ -76,12 +74,20 @@ const RegisterForm = () => {
           required
         />
         <Button
+          type="button"
           variant="outline"
           size="icon"
           onClick={handleShowPw}
           className="mr-1"
+          aria-label={
+            showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"
+          }
         >
-          {showPassword ? <EyeOff /> : <Eye />}
+          {showPassword ? (
+            <EyeOff aria-hidden="true" />
+          ) : (
+            <Eye aria-hidden="true" />
+          )}
         </Button>
       </div>
       <label
@@ -103,12 +109,20 @@ const RegisterForm = () => {
           required
         />
         <Button
+          type="button"
           variant="outline"
           size="icon"
           onClick={handleShowPw}
           className="mr-1"
+          aria-label={
+            showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"
+          }
         >
-          {showPassword ? <EyeOff /> : <Eye />}
+          {showPassword ? (
+            <EyeOff aria-hidden="true" />
+          ) : (
+            <Eye aria-hidden="true" />
+          )}
         </Button>
       </div>
       {responseState.isError && (
@@ -117,12 +131,17 @@ const RegisterForm = () => {
         </p>
       )}
 
-      <Button type="submit" className="m-0 w-full mt-3" formAction={signupFn}>
+      <Button
+        type="submit"
+        className="m-0 w-full mt-3"
+        formAction={signupFn}
+        disabled={isPending}
+      >
         {isPending ? <Loader className="animate-spin" /> : "Sign up"}
       </Button>
       <p className="mt-6 text-foreground text-[0.8rem] font-normal text-center">
         Sudah punya akun?{" "}
-        <Link href="/login" className="text-accentCS">
+        <Link href="/login" className="text-accentCS underline">
           Masuk
         </Link>
       </p>

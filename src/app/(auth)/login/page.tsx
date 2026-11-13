@@ -1,18 +1,12 @@
-// export default function LoginPage() {
-//   return (
-//     <form>
-//       <label htmlFor="email">Email:</label>
-//       <input id="email" name="email" type="email" required />
-//       <label htmlFor="password">Password:</label>
-//       <input id="password" name="password" type="password" required />
-//       <button formAction={signin}>Login</button>
-//     </form>
-//   );
-// }
-"use server";
+import { Metadata } from "next";
 import LoginForm from "./LoginForm";
 
-const LoginPage = async () => {
+export const metadata: Metadata = {
+  title: "Masuk",
+  description: "Masuk untuk mengelola tiket dan acara favoritmu.",
+};
+
+const LoginPage = () => {
   return (
     <main>
       <h1 className="text-foreground font-bold text-[1.75rem] text-center mb-4">

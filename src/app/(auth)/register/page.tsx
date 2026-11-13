@@ -1,7 +1,12 @@
-"use server";
+import { Metadata } from "next";
 import RegisterForm from "./RegisterForm";
 
-const RegisterPage = async () => {
+export const metadata: Metadata = {
+  title: "Daftar",
+  description: "Buat akun baru untuk mulai membeli dan membuat tiket acara.",
+};
+
+const RegisterPage = () => {
   return (
     <main>
       <h1 className="text-foreground font-bold text-[1.75rem] text-center mb-4">

@@ -1,9 +1,10 @@
 "use client";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import signin from "./action";
 import Link from "next/link";
 import { Eye, EyeOff, Loader } from "lucide-react";
+import useShowPassword from "@/hooks/useShowPassword";
 
 const LoginForm = () => {
   let state = {
@@ -12,10 +13,7 @@ const LoginForm = () => {
     password: "",
   };
   const [responseState, signinFn, isPending] = useActionState(signin, state);
-  const [showPassword, setShowPassword] = useState(false);
-  const handleShowPw = () => {
-    setShowPassword(!showPassword);
-  };
+  const { showPassword, handleShowPw } = useShowPassword();
   return (
     <form className="bg-surface p-8 rounded-xl outline outline-border">
       <label className="text-mutedCS font-medium text-[0.8rem]" htmlFor="email">
@@ -55,12 +53,20 @@ const LoginForm = () => {
           required
         />
         <Button
+          type="button"
           variant="outline"
           size="icon"
           onClick={handleShowPw}
           className="mr-1"
+          aria-label={
+            showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"
+          }
         >
-          {showPassword ? <EyeOff /> : <Eye />}
+          {showPassword ? (
+            <EyeOff aria-hidden="true" />
+          ) : (
+            <Eye aria-hidden="true" />
+          )}
         </Button>
       </div>
       {responseState.isError && (
@@ -71,13 +77,14 @@ const LoginForm = () => {
       <Button
         type="submit"
         className="m-0 w-[13.35rem] md:w-88 mt-3"
+        disabled={isPending}
         formAction={signinFn}
       >
         {isPending ? <Loader className="animate-spin" /> : "Login"}
       </Button>
       <p className="mt-6 text-foreground text-[0.8rem] font-normal text-center">
         Belum punya akun?{" "}
-        <Link href="/register" className="text-accentCS">
+        <Link href="/register" className="text-accentCS underline">
           Daftar
         </Link>
       </p>
