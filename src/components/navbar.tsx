@@ -1,44 +1,45 @@
 import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "./ui/button";
-import { Settings } from "lucide-react";
 import Link from "next/link";
+import NavActionUser from "./NavActionUser";
 
 type props = {
   variant: "guest" | "user";
+  pathname?: string;
 };
 
 const Navbar = (props: props) => {
   return (
     <nav className="bg-surface">
       <div className="bracket max-w-280 mx-auto flex justify-between items-center px-6 h-18">
-        <a className="logo flex gap-2 cursor-pointer">
+        <Link href="/" className="logo flex gap-2 cursor-pointer">
           <Image src="/logo.svg" alt="logo image" width={26} height={26} />
           <p className="text-xl font-bold">Eventix</p>
-        </a>
-        {props.variant === "guest" ? (
+        </Link>
+        {props.pathname ? (
           <div className="menu hidden md:flex gap-6">
-            <a
+            <Link
               href=""
               className="text-sm font-semibold text-mutedCS hover:text-foreground"
             >
               Layanan
-            </a>
-            <a
+            </Link>
+            <Link
               href=""
               className="text-sm font-semibold text-mutedCS hover:text-foreground"
             >
               Cara Kerja
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="menu hidden md:flex">
-            <a
+            <Link
               href=""
               className="text-sm font-semibold text-mutedCS hover:text-foreground"
             >
               Riwayat
-            </a>
+            </Link>
           </div>
         )}
         <div className="action flex gap-4">
@@ -57,14 +58,7 @@ const Navbar = (props: props) => {
               </Link>
             </div>
           ) : (
-            <div className="btnAction flex items-center gap-4">
-              <p className="text-foreground text-sm font-semibold hidden md:block">
-                Jhon Doe
-              </p>
-              <Button variant="outline" size="icon">
-                <Settings />
-              </Button>
-            </div>
+            <NavActionUser />
           )}
         </div>
       </div>

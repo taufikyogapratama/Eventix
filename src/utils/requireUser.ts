@@ -1,15 +1,13 @@
-import { createClient } from "@/lib/supabase/server";
+import getUser from "@/services/getUser";
 import { redirect } from "next/navigation";
 
 const requireUser = async () => {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getUser();
   if (!user) {
     redirect("/login");
+  } else {
+    return user;
   }
-  return user;
 };
 
 export default requireUser;

@@ -1,9 +1,13 @@
 import Navbar from "@/components/navbar";
+import getUser from "@/services/getUser";
 
-export default function Home() {
+const Home = async () => {
+  const user = await getUser();
   return (
     <>
-      <Navbar variant="guest" />
+      <Navbar variant={user ? "user" : "guest"} pathname="/" />
     </>
   );
-}
+};
+
+export default Home;
