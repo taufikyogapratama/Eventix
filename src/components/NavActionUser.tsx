@@ -8,7 +8,7 @@ const NavActionUser = () => {
   const pathname = usePathname();
   if (pathname === "/") {
     return (
-      <Link href="/dashboard">
+      <Link href="/dashboard" className="hidden md:inline">
         <Button variant="outline" size="small">
           Dashboard
         </Button>
@@ -16,7 +16,7 @@ const NavActionUser = () => {
     );
   } else {
     return (
-      <div className="btnAction flex items-center gap-4">
+      <div className="btnAction hidden md:flex items-center gap-4">
         <p className="text-foreground text-sm font-semibold hidden md:block">
           Jhon Doe
         </p>
