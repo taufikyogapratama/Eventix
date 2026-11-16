@@ -4,11 +4,11 @@ import Card from "./Card";
 
 const Services = () => {
   return (
-    <section className="max-w-280 mx-auto px-6 py-14">
-      <p className="text-mutedCS text-sm font-semibold">Layanan</p>
-      <h2 className="text-foreground text-2xl font-bold mt-3">
+    <section id="services" className="max-w-280 mx-auto px-6 py-14">
+      <h2 className="text-mutedCS text-sm font-semibold">Layanan</h2>
+      <h3 className="text-foreground text-2xl font-bold mt-3">
         Semua yang dibutuhkan untuk acaramu
-      </h2>
+      </h3>
       <p className="text-mutedCS text-base font-normal mt-3">
         Dari membuat tiket pertama sampai check-in di gerbang, semuanya bisa
         dijalankan langsung dari browser tanpa aplikasi tambahan.
@@ -20,6 +20,7 @@ const Services = () => {
           description="Atur nama acara,  tanggal, kuota, dan deskripsi lewat satu formulir. Belum mengaktifkan pencairan dana? Harga tiket otomatis terkunci di Rp 0 (Gratis)."
           cta="Mulai buat tiket"
           href=""
+          variant="box"
         />
         <Card
           icon="copy"
@@ -27,6 +28,7 @@ const Services = () => {
           description='Setiap tiket punya link sendiri. Salin dari dashboard, bagikan ke grup atau bio, dan pantau penjualan dari kartu "Tiket Dibuat".'
           cta="Lihat dashboard"
           href="/dashboard"
+          variant="box"
         />
         <Card
           icon="search"
@@ -34,6 +36,7 @@ const Services = () => {
           description="Temukan tiket lewat kode acara, lihat detail acara, lalu bayar lewat Virtual Account, e-Wallet, atau transfer bank di halaman invoice."
           cta="Cari tiket"
           href=""
+          variant="box"
         />
         <Card
           icon="scan-qr-code"
@@ -41,6 +44,7 @@ const Services = () => {
           description="Panitia cukup scan QR tiket lewat halaman scanner. Hasil scan berwarna hijau bila valid, merah bila tiket sudah terpakai atau tidak ditemukan."
           cta="Coba scanner"
           href=""
+          variant="box"
         />
       </div>
     </section>

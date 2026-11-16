@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import getUser from "@/services/getUser";
 import Hero from "@/components/landingpage/Hero";
 import Services from "@/components/landingpage/Services";
+import HowItWorks from "@/components/landingpage/HowItWorks";
+import Footer from "@/components/landingpage/Footer";
 
 const Home = async () => {
   const user = await getUser();
@@ -11,7 +13,10 @@ const Home = async () => {
       <main>
         <Hero />
         <Services />
+        <HowItWorks />
       </main>
+      <hr />
+      <Footer />
     </>
   );
 };

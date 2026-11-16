@@ -29,13 +29,13 @@ const Navbar = (props: props) => {
           {props.pathname ? (
             <div className="menu hidden md:flex gap-6">
               <Link
-                href=""
+                href="#services"
                 className="text-sm font-semibold text-mutedCS hover:text-foreground"
               >
                 Layanan
               </Link>
               <Link
-                href=""
+                href="#how-it-works"
                 className="text-sm font-semibold text-mutedCS hover:text-foreground"
               >
                 Cara Kerja
@@ -84,10 +84,16 @@ const Navbar = (props: props) => {
                   <SheetHeader></SheetHeader>
                   {props.pathname ? (
                     <div className="gap-0">
-                      <Link href="" className="block py-4 px-4 hover:bg-accent">
+                      <Link
+                        href="#services"
+                        className="block py-4 px-4 hover:bg-accent"
+                      >
                         Layanan
                       </Link>
-                      <Link href="" className="block py-4 px-4 hover:bg-accent">
+                      <Link
+                        href="#how-it-works"
+                        className="block py-4 px-4 hover:bg-accent"
+                      >
                         Cara Kerja
                       </Link>
 
