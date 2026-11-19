@@ -1,6 +1,7 @@
+"use server";
 import Image from "next/image";
-import { ModeToggle } from "./ModeToggle";
-import { Button } from "./ui/button";
+import { ModeToggle } from "../ModeToggle";
+import { Button } from "../ui/button";
 import Link from "next/link";
 import NavActionUser from "./NavActionUser";
 import {
@@ -9,7 +10,7 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTrigger,
-} from "./ui/sheet";
+} from "../ui/sheet";
 import { Menu } from "lucide-react";
 
 type props = {
@@ -17,7 +18,7 @@ type props = {
   pathname?: string;
 };
 
-const Navbar = (props: props) => {
+const Navbar = async (props: props) => {
   return (
     <div className="fixed top-0 w-full">
       <nav className="bg-surface/92">
