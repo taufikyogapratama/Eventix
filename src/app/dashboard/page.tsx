@@ -10,6 +10,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import Status from "@/components/Status";
+import Link from "next/link";
 
 const Dashboard = () => {
   return (
@@ -30,9 +31,11 @@ const Dashboard = () => {
           </p>
         </div>
         <div className="md:flex gap-4">
-          <Button className="flex mb-4 md:mb-0 gap-2 justify-center items-center w-full md:w-auto">
-            <Plus /> Buat Tiket
-          </Button>
+          <Link href="/create-ticket">
+            <Button className="flex mb-4 md:mb-0 gap-2 justify-center items-center w-full md:w-auto">
+              <Plus /> Buat Tiket
+            </Button>
+          </Link>
           <Button
             className="flex gap-2 justify-center items-center w-full md:w-auto"
             variant="outline"

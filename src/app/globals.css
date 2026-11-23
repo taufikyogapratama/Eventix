@@ -58,6 +58,8 @@
   --color-success-fg: var(--success-fg);
   --color-danger: var(--danger);
   --color-danger-fg: var(--danger-fg);
+  --color-warning: var(--warning);
+  --color-warning-fg: var(--warning-fg);
 }
 
 :root {
@@ -104,6 +106,8 @@
   --success-fg: #4ade80;
   --danger: #ef4444;
   --danger-fg: #fca5a5;
+  --warning: #f59e0b;
+  --warning-fg: #fbbf24;
 }
 
 .dark {
@@ -149,6 +153,8 @@
   --success-fg: #4ade80;
   --danger: #ef4444;
   --danger-fg: #fca5a5;
+  --warning: #f59e0b;
+  --warning-fg: #fbbf24;
 }
 
 @layer base {
